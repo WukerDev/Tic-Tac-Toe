@@ -20,10 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Winning_Logic.h">
+    <ClInclude Include="Winning_Logic.hpp">
       <Filter>Pliki źródłowe</Filter>
     </ClInclude>
-    <ClInclude Include="Drawing.h">
+    <ClInclude Include="Drawing.hpp">
       <Filter>Pliki źródłowe</Filter>
     </ClInclude>
   </ItemGroup>

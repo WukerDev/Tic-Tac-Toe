@@ -142,8 +142,8 @@
     <ClCompile Include="Tic-Tac-Toe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Drawing.h" />
-    <ClInclude Include="Winning_Logic.h" />
+    <ClInclude Include="Drawing.hpp" />
+    <ClInclude Include="Winning_Logic.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

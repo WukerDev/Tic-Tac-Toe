@@ -6,8 +6,8 @@ bool randomise, game = 1;
 int num;
 char xo[10] = { '1','2','3','4','5','6','7','8','9' }; // numbers on field
 
-#include "Winning_Logic.h" //winning
-#include "Drawing.h" //drawing functions
+#include "Winning_Logic.hpp" //winning
+#include "Drawing.hpp" //drawing functions
 
 void change(int number, bool player) {
     if (player == 0) { xo[number - 1] = 'X'; };
