@@ -1,3 +1,4 @@
+// game win logic
 bool vertical_win(int num) {
     if (xo[num - 1] == xo[num + 2] && xo[num + 2] == xo[num + 5]) { return true; };
 };
@@ -22,7 +23,9 @@ void win_checker() {
         horizontal_win(2) == true ||
         horizontal_win(3) == true ||
         cross_win() == true
+		// add more if statements here for more win conditions
         ) {
         game = 0;
+		// game over
     };
 };
