@@ -1,39 +1,45 @@
 ﻿#include <iostream>
 
-using namespace std;
+
 
 bool randomise, game = 1;
-int num;
+int num; 
 char xo[10] = { '1','2','3','4','5','6','7','8','9' }; // numbers on field
 
-#include "Winning_Logic.hpp" //winning
-#include "Drawing.hpp" //drawing functions
+#include "Winning_Logic.hpp" 
+#include "Drawing.hpp" 
+// including the header files
 
 void change(int number, bool player) {
     if (player == 0) { xo[number - 1] = 'X'; };
     if (player == 1) { xo[number - 1] = 'O'; };
 };
+// changing the player from X to O and vice versa
 
 void main_game() {
-    srand(time(NULL));
-    randomise = rand() % 2;
-    while (game) {
-        randomise = !randomise;
-        system("CLS");
-        draw_board();
-        if (randomise == 0) { cout << "Player X turn:"; }
-        if (randomise == 1) { cout << "Player O turn:"; }
-        cin >> num;
-        while (xo[num - 1] == 'O' || xo[num - 1] == 'X') { cout << "Invalid number! Try again:"; cin.ignore(); cin >> num; };
-        change(num, randomise);
-        win_checker();
+    srand(time(NULL));    // randomising the seed
+    randomise = rand() % 2;    // randomising the current player
+    while (game) {   // while the game is running
+        randomise = !randomise; // changing the player
+        system("CLS");    // clearing the screen
+        draw_board();   // drawing the board
+        if (randomise == 0) { std::cout << "Player X turn:"; }    // printing the current player
+		else { std::cout << "Player O turn:"; };
+        std::cin >> num;   // taking the field from the user
+        while (xo[num - 1] == 'O' || xo[num - 1] == 'X') { std::cout << "Invalid number! Try again:"; std::cin.ignore(); std::cin >> num; };
+		// checking if the field is already taken
+        change(num, randomise);  // changing field to X or O
+        win_checker();   // checking if the player won
     };
 };
 
 int main()
 {
     system("COLOR F4");
+	// changing the background colour to white and font to red
     draw_board();
     main_game();
     draw_victory();
+	// calling the main game functions
+	return 0;
 }
