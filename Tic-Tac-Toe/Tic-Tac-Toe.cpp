@@ -4,7 +4,9 @@
 
 bool randomise, game = 1;
 int num; 
+int stats[2] = {0, 0};
 char xo[10] = { '1','2','3','4','5','6','7','8','9' }; // numbers on field
+std::string replay_answer;
 
 #include "Winning_Logic.hpp" 
 #include "Drawing.hpp" 
@@ -32,7 +34,31 @@ void main_game() {
         win_checker();   // checking if the player won
     };
 };
-
+void replay() {
+	std::cout<<"\nDo you want to play again?"
+		<<"\n1.Yes"
+		<<"\n2.No"
+		<<"\nEnter your choice: ";
+    std::cin >> replay_answer;
+	    if(replay_answer == "Yes" || replay_answer == "1" || replay_answer == "yes" || replay_answer == "y" || replay_answer == "Y" || replay_answer == "YES" ){
+            game = 1;
+            draw_board();
+            main_game();
+            draw_victory();
+            // calling the main game functions
+            replay();
+}
+        else if(replay_answer == "No" || replay_answer == "2" || replay_answer == "no" || replay_answer == "n" || replay_answer == "N" || replay_answer == "NO" ){
+			std::cout<<"\nThank you for playing!";
+			game = 0;
+		}
+		else{
+			std::cout<<"\nInvalid input!";
+			replay();
+		}
+		// checking if the user wants to play again
+		};
+		
 int main()
 {
     system("COLOR F4");
@@ -41,5 +67,6 @@ int main()
     main_game();
     draw_victory();
 	// calling the main game functions
+    replay();
 	return 0;
 }
